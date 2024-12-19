@@ -1,0 +1,8 @@
+{
+    "name": "contract-deployer",
+    "version": "1.0.0",
+    "main": "deploy.js",
+    "dependencies": {
+      "web3": "^1.8.2"
+    }
+  }
