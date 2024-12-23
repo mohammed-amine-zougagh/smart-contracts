@@ -1,17 +1,19 @@
 version: '3'
 
 services:
-  deployer:
+  client:
     build:
       context: .
-    container_name: deployer
+    container_name: client
     depends_on:
       - eth-node
     networks:
       - eth-network
     volumes:
       - ./contracts:/app/contracts 
-      - ./deploy.js:/app/deploy.js 
+      - ./deployers:/app/deployers 
+      - ./clients:/app/clients 
+      - ./package.json:/app/package.json 
 
 
   eth-node:

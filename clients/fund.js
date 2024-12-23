@@ -1,6 +1,6 @@
 const Web3 = require("web3");
 
-const web3 = new Web3("http://localhost:8545");
+const web3 = new Web3("http://eth-node:8545");
 
 async function createAccountAndFund() {
 
@@ -22,6 +22,7 @@ async function createAccountAndFund() {
 
     const balance = await web3.eth.getBalance(newAccount.address);
     console.log("New account balance:", web3.utils.fromWei(balance, 'ether'), "ETH");
+    console.log(accounts);
 }
 
 createAccountAndFund();

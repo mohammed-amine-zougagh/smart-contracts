@@ -16,7 +16,7 @@ const bytecode = fs.readFileSync("./build/MyToken.bin", "utf8");
         const contract = new web3.eth.Contract(abi);
         console.log("deploying...")
         const instance = await contract
-            .deploy({ data: bytecode , arguments: ["PHI PARTN", "PHIPAR", 18, 10000000000000, "0xE48995bEfED03F483116820310789CF1950d1B11", "0xE48995bEfED03F483116820310789CF1950d1B11"]})
+            .deploy({ data: bytecode , arguments: ["phi partners token", "PHI", 18, 10000000000000, accounts[0], accounts[0]]})
             .send({ from: accounts[0], gas: 1500000 });
 
         console.log("Contract deployed at:", instance.options.address);
@@ -25,6 +25,5 @@ const bytecode = fs.readFileSync("./build/MyToken.bin", "utf8");
     }
 
 }
-
-// setTimeout(deploy, 100000); 
 deploy();
+setTimeout(()=>console.log("time's up"), 1000000000); // keep the container running to run client code in it

@@ -12,10 +12,10 @@ WORKDIR /app
 
 COPY --from=build /app/build ./build
 
-COPY ./deploy.js .
+COPY ./deployers/deploy.js .
 
 COPY ./package.json .
 
 RUN ["npm", "install"]
 
-ENTRYPOINT [ "node", "./deploy.js"]
+ENTRYPOINT [ "npm", "run", "deploy"]
